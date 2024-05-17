@@ -78,7 +78,7 @@ INSERT INTO `elections` (`id`, `election_topic`, `no_of_candidates`, `starting_d
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
-  `contact_no` varchar(45) DEFAULT NULL,
+  `NIC` varchar(45) DEFAULT NULL,
   `password` text DEFAULT NULL,
   `user_role` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -87,7 +87,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `contact_no`, `password`, `user_role`) VALUES
+INSERT INTO `users` (`id`, `username`, `NIC`, `password`, `user_role`) VALUES
 (1, 'abc', '123', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'Admin'),
 (3, 'test', '234', '0ec09ef9836da03f1add21e3ef607627e687e790', 'Voter'),
 (4, 'Magnolia', '345', '35139ef894b28b73bea022755166a23933c7d9cb', 'Voter');

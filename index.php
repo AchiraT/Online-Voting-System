@@ -58,9 +58,9 @@
 <body>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
+			<div class="user_card ">
 				<div class="d-flex justify-content-center">
-					<div class="brand_logo_container">
+					<div class="brand_logo_container mb-4">
 						<img src="assets/images/logo.jpeg" class="brand_logo" alt="Logo">
 					</div>
 				</div>
@@ -81,7 +81,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="text" name="su_contact_no" class="form-control input_pass" placeholder="Contact #" required />
+                                    <input type="text" name="su_NIC" class="form-control input_pass" placeholder="Your NIC" required />
                                 </div>
                                 <div class="input-group mb-3">
                                     <div class="input-group-append">
@@ -116,7 +116,7 @@
                                     <div class="input-group-append">
                                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                                     </div>
-                                    <input type="text" name="contact_no" class="form-control input_user" placeholder="Contact No" required />
+                                    <input type="text" name="NIC" class="form-control input_user" placeholder="NIC" required />
                                 </div>
                                 <div class="input-group mb-2">
                                     <div class="input-group-append">
@@ -162,10 +162,14 @@
                     }else if(isset($_GET['invalid_access'])) {
                 ?>
                         <span class="bg-white text-danger text-center my-3"> Invalid username or password! </span>
+              
+                <?php
+                    }else if(isset($_GET['nic_exists'])) {
+                ?>
+                        <span class="bg-white text-danger text-center my-3"> Already exists that user! </span>
                 <?php
                     }
                 ?>
-                       
 			</div>
 		</div>
 	</div>
@@ -179,45 +183,49 @@
 <?php 
     require_once("admin/inc/config.php");
 
-    if(isset($_POST['sign_up_btn']))
-    {
+    if(isset($_POST['sign_up_btn'])) {
         $su_username = mysqli_real_escape_string($db, $_POST['su_username']);
-        $su_contact_no = mysqli_real_escape_string($db, $_POST['su_contact_no']);
+        $su_NIC = mysqli_real_escape_string($db, $_POST['su_NIC']);
         $su_password = mysqli_real_escape_string($db, sha1($_POST['su_password']));
         $su_retype_password = mysqli_real_escape_string($db, sha1($_POST['su_retype_password']));
         $user_role = "Voter"; 
-
-        if($su_password == $su_retype_password)
-        {
-            // Insert Query 
-
-            mysqli_query($db, "INSERT INTO users(username, contact_no, password, user_role) VALUES('". $su_username ."', '". $su_contact_no ."', '". $su_password ."', '". $user_role ."')") or die(mysqli_error($db));
-
-        ?>
-            <script> location.assign("index.php?sign-up=1&registered=1"); </script>
-        <?php
-
-        }else {
-    ?>
+    
+        if($su_password == $su_retype_password) {
+            // Check if NIC already exists
+            $check_nic_query = mysqli_query($db, "SELECT * FROM users WHERE NIC = '$su_NIC'");
+            if(mysqli_num_rows($check_nic_query) > 0) {
+                // NIC already exists
+                ?>
+                <script> location.assign("index.php?sign-up=1&nic_exists=1"); </script>
+                <?php
+            } else {
+                // Insert Query
+                mysqli_query($db, "INSERT INTO users(username, NIC, password, user_role) VALUES('$su_username', '$su_NIC', '$su_password', '$user_role')") or die(mysqli_error($db));
+                ?>
+                <script> location.assign("index.php?sign-up=1&registered=1"); </script>
+                <?php
+            }
+        } else {
+            ?>
             <script> location.assign("index.php?sign-up=1&invalid=1"); </script>
-    <?php
+            <?php
         }
-             
-    }else if(isset($_POST['loginBtn']))
+    }
+    else if(isset($_POST['loginBtn']))
     {
-        $contact_no = mysqli_real_escape_string($db, $_POST['contact_no']);
+        $NIC = mysqli_real_escape_string($db, $_POST['NIC']);
         $password = mysqli_real_escape_string($db, sha1($_POST['password']));
         
 
         // Query Fetch / SELECT
-        $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE contact_no = '". $contact_no ."'") or die(mysqli_error($db));
+        $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE NIC = '". $NIC ."'") or die(mysqli_error($db));
 
         
         if(mysqli_num_rows($fetchingData) > 0)
         {
             $data = mysqli_fetch_assoc($fetchingData);
 
-            if($contact_no == $data['contact_no'] AND $password == $data['password'])
+            if($NIC == $data['NIC'] AND $password == $data['password'])
             {
                 session_start();
                 $_SESSION['user_role'] = $data['user_role'];

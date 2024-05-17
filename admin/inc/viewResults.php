@@ -125,10 +125,10 @@
                             $userData = mysqli_fetch_assoc($fetchingUsername);
                             if($isDataAvailable > 0) {
                                 $username = $userData['username'];
-                                $contact_no = $userData['contact_no'];
+                                $NIC = $userData['NIC'];
                             } else {
                                 $username = "No_Data";
-                                $contact_no = $userData['contact_no'];
+                                $NIC = $userData['NIC'];
                             }
 
                             $fetchingCandidateName = mysqli_query($db, "SELECT * FROM candidate_details WHERE id = '". $candidate_id ."'") or die(mysqli_error($db));
@@ -143,7 +143,7 @@
                                 <tr>
                                     <td><?php echo $sno++; ?></td>
                                     <td><?php echo $username; ?></td>
-                                    <td><?php echo $contact_no; ?></td>
+                                    <td><?php echo $NIC; ?></td>
                                     <td><?php echo $candidate_name; ?></td>
                                     <td><?php echo $data['vote_date']; ?></td>
                                     <td><?php echo $data['vote_time']; ?></td>
