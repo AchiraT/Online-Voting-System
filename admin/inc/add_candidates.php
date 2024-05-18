@@ -104,7 +104,6 @@
                                             $election_name = $row['election_topic'];
                                             $allowed_candidates = $row['no_of_candidates'];
 
-                                            // Now checking how many candidates are added in this election 
                                             $fetchingCandidate = mysqli_query($db, "SELECT * FROM candidate_details WHERE election_id = '". $election_id ."'") or die(mysqli_error($db));
                                             $added_candidates = mysqli_num_rows($fetchingCandidate);
 
@@ -210,7 +209,6 @@
             }
         }
 
-        // Change button color when clicked
         document.getElementById('addCandidateBtn').addEventListener('click', function() {
             this.classList.remove('btn-success');
             this.classList.add('btn-danger');
@@ -226,7 +224,6 @@
             $inserted_by = $_SESSION['username'];
             $inserted_on = date("Y-m-d");
 
-            // Photograph Logic Starts
             $targetted_folder = "../assets/images/candidate_photos/";
             $candidate_photo = $targetted_folder . rand(111111111, 99999999999) . "_" . rand(111111111, 99999999999) . $_FILES['candidate_photo']['name'];
             $candidate_photo_tmp_name = $_FILES['candidate_photo']['tmp_name'];
@@ -234,13 +231,12 @@
             $allowed_types = array("jpg", "png", "jpeg");        
             $image_size = $_FILES['candidate_photo']['size'];
 
-            if($image_size < 2000000) // 2 MB
+            if($image_size < 2000000)
             {
                 if(in_array($candidate_photo_type, $allowed_types))
                 {
                     if(move_uploaded_file($candidate_photo_tmp_name, $candidate_photo))
                     {
-                        // inserting into db
                         mysqli_query($db, "INSERT INTO candidate_details(election_id, candidate_name, candidate_details, candidate_photo, inserted_by, inserted_on) VALUES('". $election_id ."', '". $candidate_name ."', '". $candidate_details ."', '". $candidate_photo ."', '". $inserted_by ."', '". $inserted_on ."')") or die(mysqli_error($db));
 
                         echo "<script> location.assign('index.php?addCandidatePage=1&added=1'); </script>";
@@ -255,7 +251,6 @@
                 echo "<script> location.assign('index.php?addCandidatePage=1&largeFile=1'); </script>";
             }
 
-            // Photograph Logic Ends
         }
     ?>
 </body>

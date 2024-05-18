@@ -75,7 +75,6 @@
                                     $candidate_id = $candidateData['id'];
                                     $candidate_photo = $candidateData['candidate_photo'];
 
-                                    // Fetching Candidate Votes 
                                     $fetchingVotes = mysqli_query($db, "SELECT * FROM votings WHERE candidate_id = '". $candidate_id . "'") or die(mysqli_error($db));
                                     $totalVotes = mysqli_num_rows($fetchingVotes);
                             ?>

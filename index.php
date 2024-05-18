@@ -10,9 +10,6 @@
         $election_id = $data['id'];
         $status = $data['status'];
 
-        // Active = Expire = Ending Date
-        // InActive = Active = Starting Date
-
         if($status == "Active")
         {
             $date1=date_create($curr_date);
@@ -21,7 +18,6 @@
             
             if((int)$diff->format("%R%a") < 0)
             {
-                // Update! 
                 mysqli_query($db, "UPDATE elections SET status = 'Expired' WHERE id = '". $election_id ."'") OR die(mysqli_error($db));
             }
         }else if($status == "InActive")
@@ -33,7 +29,6 @@
 
             if((int)$diff->format("%R%a") <= 0)
             {
-                // Update! 
                 mysqli_query($db, "UPDATE elections SET status = 'Active' WHERE id = '". $election_id ."'") OR die(mysqli_error($db));
             }
         }
@@ -199,7 +194,6 @@
                 <script> location.assign("index.php?sign-up=1&nic_exists=1"); </script>
                 <?php
             } else {
-                // Insert Query
                 mysqli_query($db, "INSERT INTO users(username, NIC, password, user_role) VALUES('$su_username', '$su_NIC', '$su_password', '$user_role')") or die(mysqli_error($db));
                 ?>
                 <script> location.assign("index.php?sign-up=1&registered=1"); </script>
@@ -217,7 +211,6 @@
         $password = mysqli_real_escape_string($db, sha1($_POST['password']));
         
 
-        // Query Fetch / SELECT
         $fetchingData = mysqli_query($db, "SELECT * FROM users WHERE NIC = '". $NIC ."'") or die(mysqli_error($db));
 
         

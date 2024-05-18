@@ -57,7 +57,7 @@
                         <tr>
                             <th scope="col"><i class="fas fa-list-ol"></i> S.No</th>
                             <th scope="col"><i class="fas fa-vote-yea"></i> Election Name</th>
-                            <th scope="col"><i class="fas fa-users"></i> # Candidates</th>
+                            <th scope="col"><i class="fas fa-users"></i> Candidates</th>
                             <th scope="col"><i class="fas fa-calendar-alt"></i> Starting Date</th>
                             <th scope="col"><i class="fas fa-calendar-alt"></i> Ending Date</th>
                             <th scope="col"><i class="fas fa-info-circle"></i> Status</th>

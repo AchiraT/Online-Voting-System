@@ -101,7 +101,7 @@
                         <tr>
                             <th scope="col">S.No</th>
                             <th scope="col">Election Name</th>
-                            <th scope="col"># Candidates</th>
+                            <th scope="col">Candidates</th>
                             <th scope="col">Starting Date</th>
                             <th scope="col">Ending Date</th>
                             <th scope="col">Status</th>
@@ -158,7 +158,6 @@
             }
         }
 
-        // Change button color when clicked
         document.getElementById('addElectionBtn').addEventListener('click', function() {
             this.classList.remove('btn-success');
             this.classList.add('btn-danger');
@@ -186,7 +185,6 @@
                 $status = "Active";
             }
 
-            // inserting into db
             mysqli_query($db, "INSERT INTO elections(election_topic, no_of_candidates, starting_date, ending_date, status, inserted_by, inserted_on) VALUES('". $election_topic ."', '". $number_of_candidates ."', '". $starting_date ."', '". $ending_date ."', '". $status ."', '". $inserted_by ."', '". $inserted_on ."')") or die(mysqli_error($db));
     ?>
             <script> location.assign("index.php?addElectionPage=1&added=1"); </script>
