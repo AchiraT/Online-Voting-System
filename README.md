@@ -1,7 +1,3 @@
-Here's a simple README file for the 'Online Voting System' project:
-
----
-
 # Online Voting System
 
 This is an online voting system project that allows users to participate in elections and cast their votes securely through a web interface.
@@ -54,15 +50,3 @@ This is an online voting system project that allows users to participate in elec
 2. **Login using your credentials.**
 3. **Participate in ongoing elections and cast your vote.**
 4. **Admins can manage elections and candidates through the admin panel.**
-
-## Contributing
-
-Contributions are welcome! Please fork this repository and submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-Feel free to customize this README file further based on specific details or instructions for your project.
