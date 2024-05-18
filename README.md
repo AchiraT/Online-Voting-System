@@ -1,111 +1,54 @@
-﻿# Online-Voting-System
-Welcome readers ...
-To our Online Voting System, developed by using html , Css , javascript and fully working backend powered by php , MySql.
+IT21058196 / IT20601638
 
-Introduction: 
+# Online Voting System
 
-At the end of any political term, millions of voters are called upon to cast their votes 
-for their next political representatives. Unfortunately, many eligible voters will not be 
-able to reach a polling station during the election.Some are living abroad or are 
-deployed in the military. Some have disabilities and face inaccessible polling locations. 
-Some simply don’t have the means to take the time to vote, whether it be due to a job, 
-to travels, or to living far away from a voting center. 
-You may hear an online voting system being referred to as an online election system, 
-an online e voting system, or electronic voting. These all make reference to the same 
-thing: a secure voting tool that allows your group to collect input from your group and 
-closely scrutinize the results in real time. 
+This is an online voting system project that allows users to participate in elections and cast their votes securely through a web interface.
 
+## Features
 
-Overview: 
+- User registration and login
+- Voting for candidates
+- Admin panel to manage elections and candidates
+- Secure and reliable voting process
 
-Online voting tools and online election voting systems help you make important 
-decisions by gathering the input of your group in a way that’s systematic and 
-verifiable.Oftentimes, these decisions are made on a yearly basis - during an event (e.g. 
-your organization’s AGM) or at a particular time of the year. Or you might run 
-ongoing polls amongst your group (e.g. anonymous employee feedback surveys). 
-It’s a good idea to use an online voting system to: 
+## Technologies Used
 
- Elect your leadership: A board of directors election is a good example, where there 
-are multiple positions (e.g. chair, vice president, secretary, treasurer). All of which 
-may include supporting documentation (e.g. biographies, resumes, head shots). 
+- PHP
+- MySQL
+- HTML/CSS
+- JavaScript
 
- Admit new members to your group. This helps you stick to a regular, fair process 
-of evaluation and lets candidates know what to expect. 
+## Installation
 
- Gather anonymous feedback from your employees. Managers (and managers of 
-managers) want to know how their employees truly feel about their jobs and work 
-life. Using an online voting system with a capacity for secret balloting helps 
-employees express their true feelings, by understanding and trusting that their 
-feedback will be heard, but not tied directly to them. 
+1. **Clone the repository:**
 
- Vote on yearly budgets. And since adjustments to your budget are often needed, 
-an online voting system will keep voting secure and accessible - no matter where 
-the members of your group may happen to be. 
+   ```bash
+   git clone https://github.com/AchiraT/Online-Voting-System.git
+   ```
 
- Alter your operational procedures and bylaws. Just like leadership elections, 
-expect group members to react strongly toward changes - no matter how minor - 
-to organizational processes. You’ll want to collect individual responses to these 
-changes in a systematic manner. 
-In all of these cases, an online voting system will enable better decisions, justify those 
-decisions, and let you share proof that these decisions were carried out in line with the 
-standards of your group. 
+2. **Navigate to the project directory:**
 
+   ```bash
+   cd Online-Voting-System
+   ```
 
-How does our Website Work? 
+3. **Import the database:**
 
- Registration/Login: 
-To register to vote, voters are added to an electoral roll of eligible voters, as with any 
-election. They are then provided with credentials, such as a username and password, 
-to access the voting system.
+   - Create a database named `online_voting_system`.
+   - Import the `database.sql` file located in the project directory into your database.
 
- Voting 
-Voters can cast a ballot by opening the election website from an Internet browser, 
-identifying themselves (with their username and password, for example), and 
-selecting their voting choices. Then all they need to do is click on the “cast” button. 
-Correspondingly it’ll show us the message “VOTED” and all the other Vote Options 
-will disappear which helps us to remove any discrepancies and inconsistency w.r.t the 
-voting process. 
+4. **Configure the database connection:**
 
- Verification/Discrepancy Avoidance 
-Verification is the last step, and it is usually optional, enabling voters to verify that 
-their ballot was correctly registered by the voting system. 
+   - Open the `config.php` file and update the database configuration settings.
 
+5. **Run the project:**
 
-What makes our Website unique?
+   - Start your local server (e.g., XAMPP, WAMP).
+   - Open a web browser and go to `http://localhost/Online-Voting-System`.
 
-1. Our Admin Panel 
-An Admin will be able to perform all sorts of varied functions. For instance, An admin 
-can create a particular election, he can add candidates to any particular election, he 
-can delete an election when it’s over, he can delete the candidates who won’t be 
-relevant to any current exixting election and most importantly he can also view the 
-result of an election after its over. 
+## Usage
 
-2. Our Backend 
-How is it secure? 
-In a world of hacking, threats and misinformation, one might think that voting over 
-the Internet can be unreliable. However, online voting providers develop online voting 
-systems so that they are easy for voters to use, yet extremely difficult for attackers to 
-deceive.In an online voting election, votes can only be cast by eligible voters. They are 
-then encrypted on the voter’s computer or smartphone, just after they are created, and 
-are kept protected until they are counted. Also, no vote can be added, modified or 
-removed from the ballot box in order to alter the final election result. In fact, a stateof-the-art online voting mechanism should offer higher security measures than 
-regular paper voting, as well as any postal voting system. 
-
-3. Accessibility and Reliability: 
-Although voting alternatives exist for those who can’t fill out a standard ballot on 
-election day, they are far from perfect. Postal voting methods leave little room for slow 
-mail services and have no way for voters to verify that their ballot was correctly 
-counted and not tampered with. Similarly, services for people with disabilities usually 
-require them to forfeit their voter privacy by asking someone to vote on their behalf or 
-telling a poll worker which option they would like to elect. 
-
-
-Conclusion: 
-Online Voting offers the benefits of these alternatives without any of the drawbacks. 
-With online voting, every voter is guaranteed an accessible and secure voting method, 
-their votes remain private and confidential, and they can participate in an election 
-from anywhere, at any time. In a country like India, where amount of corruption 
-outweighs the amount of times any fair election has been held, it’s absolutely worth 
-making an online voting system which provides a safe space to anyone who wishes to 
-vote and not worry about the consequences and see India move towards a brighter and 
-corruption-free future.
+1. **Register as a new user.**
+2. **Login using your credentials.**
+3. **Participate in ongoing elections and cast your vote.**
+4. **Admins can manage elections and candidates through the admin panel.**
