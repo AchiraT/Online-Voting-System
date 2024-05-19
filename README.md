@@ -1,5 +1,4 @@
-IT21058196 - Gunawardhana K.P.A.T
-IT20601638 - Parthika.K
+IT21058196 - Gunawardhana K.P.A.T / IT20601638 - Parthika.K
 
 # Online Voting System
 
